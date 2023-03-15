@@ -14,7 +14,7 @@ $db = mysqli_connect("localhost", "root", "","ALUCOMMUNITY");
 <body>
     <div class="container">
         <h1>Sign up to Dashboard</h1>
-        <form method="POST"  action="login.php">
+        <form method="POST"  action="">
         <div class="form-group">
                 <label for=""> First name</label>
                 <input type="text" class="form-control" name="fname" required>
@@ -78,7 +78,7 @@ if(isset($_POST['submit']))
 
     $insert_qry = " INSERT INTO users values(null, '$fname', '$lname', '$uname','$email','$intake','$course','$pswd') ";
     if(mysqli_query($db, $insert_qry)){
-        header('login.php');
+        header('location: login.php');
     }else{
         echo mysqli_error($db);
     }
