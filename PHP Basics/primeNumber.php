@@ -9,7 +9,7 @@ for ($i = 1; $i <= 100; $i++) {
     }
 
     // Check if the number is divisible by any number between 2 and the number itself
-    for ($j = 2; $j < $i; $j++) {
+    for ($j = 2; $j <$i; $j++) {
         if ($i % $j == 0) {
             $isPrime = false;
             break;
@@ -18,7 +18,7 @@ for ($i = 1; $i <= 100; $i++) {
 
     // If the number is prime, display it on the screen
     if ($isPrime) {
-        echo $i . " ";
+        echo $i . "  ";
     }
 }
 ?>
