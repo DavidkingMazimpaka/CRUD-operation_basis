@@ -1,5 +1,8 @@
 <?php
 $db = mysqli_connect("localhost", "root", "","ALUCOMMUNITY");
+if($db -> connect_error){
+    die("connection failed".$db -> connect_error);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
