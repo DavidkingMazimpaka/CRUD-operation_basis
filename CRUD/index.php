@@ -1,7 +1,7 @@
 <?php
-$db = mysqli_connect("localhost", "root", "","ALUCOMMUNITY");
-if($db -> connect_error){
-    die("connection failed".$db -> connect_error);
+$conn = mysqli_connect("localhost", "root", "","ALUCOMMUNITY");
+if($conn -> connect_error){
+    die("connection failed".$conn -> connect_error);
 }
 ?>
 <!DOCTYPE html>
@@ -80,10 +80,17 @@ if(isset($_POST['submit']))
     $pswd = $_POST['pswd'];
 
     $insert_qry = " INSERT INTO users values(null, '$fname', '$lname', '$uname','$email','$intake','$course','$pswd') ";
-    if(mysqli_query($db, $insert_qry)){
-        header('location: login.php');
+    $result = $conn -> query($insert_qry);
+    if($result){
+        $qry = " SELECT user_id, firstname, lastname, username, email, intake, course, pswd FROM users";
+        $rslt = $conn -> query($qry);
+        if($rslt -> num_rows > 0 ){
+            while($row = $rslt ->fetch_assoc()){
+                echo "<tr><td>".$row["user_id"]."</td><td>".$row["user_id"]."</td><td>".$row["user_id"]."</td><td>".$row["user_id"]."</td><td>".$row["user_id"]."</td><td>".$row["user_id"]."</td><td>".$row["user_id"]."</td></tr>";
+            }
+        }
     }else{
-        echo mysqli_error($db);
+        echo mysqli_error($conn);
     }
 }
 ?>
