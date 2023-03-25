@@ -1,8 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "","ALUCOMMUNITY");
-if($conn -> connect_error){
-    die("connection failed".$conn -> connect_error);
-}
+include('conn.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +9,7 @@ if($conn -> connect_error){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/style.css" rel="stylesheet">
+    <script src="scripts/responsive.js"></script>
 </head>
 
 <body>
@@ -82,15 +80,9 @@ if(isset($_POST['submit']))
     $insert_qry = " INSERT INTO users values(null, '$fname', '$lname', '$uname','$email','$intake','$course','$pswd') ";
     $result = $conn -> query($insert_qry);
     if($result){
-        $qry = " SELECT user_id, firstname, lastname, username, email, intake, course, pswd FROM users";
-        $rslt = $conn -> query($qry);
-        if($rslt -> num_rows > 0 ){
-            while($row = $rslt ->fetch_assoc()){
-                echo "<tr><td>".$row["user_id"]."</td><td>".$row["user_id"]."</td><td>".$row["user_id"]."</td><td>".$row["user_id"]."</td><td>".$row["user_id"]."</td><td>".$row["user_id"]."</td><td>".$row["user_id"]."</td></tr>";
-            }
+        header("location: retrieve.php");
         }
     }else{
         echo mysqli_error($conn);
     }
-}
 ?>
