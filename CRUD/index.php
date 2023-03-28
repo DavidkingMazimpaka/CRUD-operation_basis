@@ -17,6 +17,10 @@ include('conn.php');
         <h1>Sign up to Dashboard</h1>
         <form method="POST"  action="">
         <div class="form-group">
+                <label for=""> USER ID</label>
+                <input type="text" class="form-control" name="fname" required>
+            </div>
+        <div class="form-group">
                 <label for=""> First name</label>
                 <input type="text" class="form-control" name="fname" required>
             </div>

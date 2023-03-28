@@ -59,7 +59,7 @@ include('conn.php');
                 <label for=""> Password</label>
                 <input type="password" class="form-control" placeholder="" name="pswd" required>
             </div>
-            <input type="submit" class="btn" value="submit" name="submit" onclick="alert('Recored successfully!!')"> &nbsp;<input type="reset" class="btn1" value="Reset">
+            <input type="submit" class="btn" value="Update" name="submit" onclick="alert('Recored successfully!!')"> &nbsp;<input type="reset" class="btn1" value="Reset">
         </form>
     </div>
 </body>
